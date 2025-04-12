@@ -1,6 +1,6 @@
 import uvicorn
 from fastapi import FastAPI
-from src.api.dependencies import initialize_dependecies, get_llm_communication_service
+from src.api.dependencies import initialize_dependecies, get_communication_service
 from src.api.api import router
 from src.api.middleware import AuthMiddleware
 from dotenv import load_dotenv

@@ -1,7 +1,7 @@
 from datetime import date
 from typing import List, Optional
 from dataclasses import dataclass
-from sqlalchemy import Column, Integer, String, Date, create_engine
+from sqlalchemy import Column, Integer, String, Date, create_engine, select
 from sqlalchemy.types import JSON
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import Session, sessionmaker
@@ -41,31 +41,38 @@ class RegisterEventModel(Base):
 class RegisterEventRepository:
     connector: DatabaseConnector
 
-    def create(self, event: RegisterEvent):
-        session = self.connector.get_session()
-        model = RegisterEventModel.of(event)
-        session.add(model)
-        session.commit()
+    async def create(self, event: RegisterEvent):
+        async with await self.connector.get_session() as session:
+            model = RegisterEventModel.of(event)
+            session.add(model)
+            await session.commit()
 
 
-    def read_events_to_execute(self) -> List[RegisterEvent]:
-        session = self.connector.get_session()
-        now = datetime.now()
-        today = now.date()
-        current_hour = now.hour
+    async def read_events_to_execute(self) -> List[RegisterEvent]:
+        async with await self.connector.get_session() as session:
 
-        models = session.query(RegisterEventModel).all()
-        # models = session.query(RegisterEventModel).filter(
-        #     RegisterEventModel.start_date <= today,
-        #     RegisterEventModel.end_date >= today
-        # ).all()
+            now = datetime.now()
+            today = now.date()
+            current_hour = now.hour
 
-        filtered = [
-            model.to_event()
-            for model in models
-            # if current_hour in model.hours
-        ]
+            result = await session.execute(
+                select(RegisterEventModel)
+            )
+            # result = await session.execute(
+            #     select(RegisterEventModel).where(
+            #         RegisterEventModel.start_date <= today,
+            #         RegisterEventModel.end_date >= today,
+            #     )
+            # )
+            models = result.scalars().all()
 
-        print(filtered)
 
-        return filtered
+            filtered = [
+                model.to_event()
+                for model in models
+                # if current_hour in model.hours
+            ]
+
+            print(filtered)
+
+            return filtered
