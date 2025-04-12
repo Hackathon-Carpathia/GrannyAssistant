@@ -2,11 +2,15 @@ import uvicorn
 from fastapi import FastAPI
 from src.api.dependencies import initialize_dependecies, get_llm_communication_service
 from src.api.api import router
+from src.api.middleware import AuthMiddleware
+from dotenv import load_dotenv
 
+load_dotenv(override=True)
 
 def create_app():
     app = FastAPI()
     app.include_router(router, prefix="/api/v1")
+    app.add_middleware(AuthMiddleware)
     return app
 
 if __name__ == "__main__":
