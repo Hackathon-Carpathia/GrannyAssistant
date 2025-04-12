@@ -9,10 +9,10 @@ app = FastAPI()
 
 
 @app.post("/sendSMS/", tags=["SMS"])
-async def send_sms(SMS_data: SMSMetadata, twilio=Depends(get_twilio_client)) -> str:
+async def send_sms(sms_data: SMSMetadata, twilio=Depends(get_twilio_client)) -> str:
     message = twilio.messages.create(
-        body=SMS_data.message,
+        body=sms_data.message,
         from_=os.getenv("FROM_NUMBER"),
-        to=SMS_data.to_number,
+        to=sms_data.to_number,
     )
-    return f"SMS send successfully - {message.sid}"
+    return f"SMS sent successfully - {message.sid}"
