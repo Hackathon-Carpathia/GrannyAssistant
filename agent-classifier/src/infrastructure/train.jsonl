@@ -1,0 +1,592 @@
+[
+//  {
+//    "Input": "Dzień dobry mój drogi dzisiaj czuję się nie najlepiej chyba mam tę grypę bolí mnie gardło i mam gorączkę trzęsę się cała nie wiem czy wziąć te tabletki co mi wnuczka kupiła",
+//    "Reasoning": "Starsza osoba opisuje aktualne objawy grypy. To powszechny problem zdrowotny, ale nie stan bezpośrednio zagrażający życiu.",
+//    "Final Output": "health"
+//  },
+  {
+    "Input": "pomocy pali się mój kocioł w piwnicy dym idzie do góry nie mogę oddychać muszę stąd wyjść ale nie widzę drogi",
+    "Reasoning": "Basia opisuje aktualną sytuację pożaru, która bezpośrednio zagraża jej życiu i wymaga natychmiastowej pomocy.",
+    "Final Output": "emergency"
+  },
+  {
+    "Input": "Wczoraj byłam na tym spotkaniu z koleżankami z dawnej pracy wiesz Halina ta ruda nadal farbuje włosy chociaż ma już 80 lat a Krystyna opowiadała o swoim nowym kocie bardzo miło spędziłam czas",
+    "Reasoning": "Basia prowadzi zwykłą rozmowę o spotkaniu towarzyskim. Nie ma tu elementów dotyczących zdrowia ani sytuacji awaryjnych.",
+    "Final Output": "normal_talk"
+  },
+//  {
+//    "Input": "wczoraj prawie miałam zawał tak mnie bolało w klatce ale poszłam do doktora i powiedział że to tylko stres tyle się denerwuję przez te rachunki",
+//    "Reasoning": "Basia wspomina o przeszłym zdarzeniu zdrowotnym. Ponieważ mówi o przeszłym wydarzeniu, które zostało już zdiagnozowane, klasyfikujemy to jako problem zdrowotny.",
+//    "Final Output": "health"
+//  },
+  {
+    "Input": "oj jezus maria teraz mnie tak ściska w klatce piersiowej nie mogę złapać tchu ręka mnie boli lewa pomóżcie ktoś",
+    "Reasoning": "Basia opisuje aktualne objawy wskazujące na możliwy zawał serca. To stan bezpośrednio zagrażający życiu wymagający natychmiastowej pomocy.",
+    "Final Output": "emergency"
+  },
+//  {
+//    "Input": "ten mój ciśnieniomierz chyba źle działa bo pokazuje 180 na 100 ale czuję się dobrze tylko trochę głowa boli wezmę te tabletki co zawsze",
+//    "Reasoning": "Basia opisuje podwyższone ciśnienie, ale nie zgłasza poważnych objawów i ma plan działania. To problem zdrowotny, ale nie bezpośrednie zagrożenie życia.",
+//    "Final Output": "health"
+//  },
+  {
+    "Input": "słyszałaś co powiedziała w telewizji ta prezenterka o emeryturach będą wypłacać jakiś dodatek muszę zadzwonić do ZUS i się dowiedzieć",
+    "Reasoning": "Basia prowadzi zwykłą rozmowę na temat wiadomości o emeryturach. Nie ma tu elementów zdrowotnych ani sytuacji awaryjnych.",
+    "Final Output": "normal_talk"
+  },
+  {
+    "Input": "upadłam na schodach nie mogę wstać chyba złamałam biodro strasznie boli jak się ruszam pomocy nikogo nie ma w domu",
+    "Reasoning": "Basia opisuje aktualną sytuację po upadku, potencjalnie złamane biodro i niemożność wstania. To sytuacja wymagająca natychmiastowej pomocy medycznej.",
+    "Final Output": "emergency"
+  },
+  {
+    "Input": "jakoś dziwnie widzę połowa obrazu jakby zniknęła nie wiem czy to z oczami coś czy z głową tak nagle się zrobiło",
+    "Reasoning": "Basia opisuje nagłe zaburzenia widzenia, co może wskazywać na udar lub inne poważne stany. To sytuacja wymagająca natychmiastowej oceny medycznej.",
+    "Final Output": "emergency"
+  },
+//  {
+//    "Input": "moje ciśnienie skacze od miesiąca raz niskie raz wysokie lekarz zmienił mi tabletki ale jeszcze nie widzę poprawy",
+//    "Reasoning": "Basia opisuje trwający problem zdrowotny związany z ciśnieniem, który jest już pod opieką lekarza. Nie zgłasza objawów bezpośredniego zagrożenia.",
+//    "Final Output": "health"
+//  },
+  {
+    "Input": "byłam wczoraj na działce posadziłam pomidory i ogórki w tym roku będzie dobry urodzaj jeśli deszcz będzie padał no i jak kolana pozwolą na pielenie",
+    "Reasoning": "Basia prowadzi zwykłą rozmowę o swoich zajęciach ogrodniczych. Wspomina o kolanach, ale nie w kontekście aktualnego problemu zdrowotnego.",
+    "Final Output": "normal_talk"
+  },
+  {
+    "Input": "Jadzia córka Kowalskiej z trzeciego piętra zachorowała na raka bardzo smutno mi z tego powodu znałam ją jak była dzieckiem a teraz sama ma wnuki",
+    "Reasoning": "Basia prowadzi rozmowę o chorobie innej osoby. Nie jest to jej własny problem zdrowotny ani sytuacja awaryjna.",
+    "Final Output": "normal_talk"
+  },
+//  {
+//    "Input": "ta moja noga spuchnięta jest już trzeci dzień i boli jak chodzę ale maść trochę pomaga jutro pójdę do przychodni",
+//    "Reasoning": "Basia opisuje aktualny problem zdrowotny z nogą, który nie wydaje się być stanem nagłym. Ma już plan działania.",
+//    "Final Output": "health"
+//  },
+  {
+    "Input": "duszę się nie mogę złapać powietrza inhalator nie pomaga chyba muszę wezwać pogotowie",
+    "Reasoning": "Basia opisuje aktualny silny atak duszności, który nie reaguje na standardowe leczenie. To stan bezpośrednio zagrażający życiu.",
+    "Final Output": "emergency"
+  },
+  {
+    "Input": "kocham oglądać te programy o zwierzętach wczoraj pokazywali lwy w Afryce takie piękne stworzenia szkoda że nigdy ich na żywo nie zobaczę",
+    "Reasoning": "Basia prowadzi zwykłą rozmowę o programach telewizyjnych i zwierzętach. Nie ma tu elementów zdrowotnych ani sytuacji awaryjnych.",
+    "Final Output": "normal_talk"
+  },
+//  {
+//    "Input": "skończyły mi się te tabletki na cholesterol muszę jutro iść do lekarza po receptę bo biorę je już od 10 lat nie mogę przestać",
+//    "Reasoning": "Basia mówi o potrzebie odnowienia recepty na leki na cholesterol. To rutynowa sprawa zdrowotna, nie stan nagły.",
+//    "Final Output": "health"
+//  },
+//  {
+//    "Input": "chyba zatruł się jedzeniem wymiotuję od rana i mam biegunkę strasznie osłabiony jestem",
+//    "Reasoning": "Basia opisuje objawy zatrucia pokarmowego. Choć nieprzyjemne, zazwyczaj nie jest to stan bezpośrednio zagrażający życiu, chyba że występuje odwodnienie lub inne poważne komplikacje, których tu nie wspomniano.",
+//    "Final Output": "health"
+//  },
+  {
+    "Input": "czy mogłabyś mi przeczytać najnowsze wiadomości z gazety okulary gdzieś położyłam i nie widzę tych drobnych literek",
+    "Reasoning": "Basia prosi o pomoc w przeczytaniu wiadomości z powodu problemu ze wzrokiem. To zwykła prośba, nie stan zdrowotny wymagający interwencji.",
+    "Final Output": "normal_talk"
+  },
+  {
+    "Input": "słabo mi się zrobiło czuję że zaraz zemdleję wszystko wiruje przed oczami",
+    "Reasoning": "Basia opisuje aktualny stan przedomdleniowy, który może być objawem poważnego problemu zdrowotnego wymagającego natychmiastowej pomocy.",
+    "Final Output": "emergency"
+  },
+  {
+    "Input": "nie pamiętam gdzie jestem miałam iść do sklepu ale nie wiem jak się tu znalazłam nie poznaję tej ulicy",
+    "Reasoning": "Basia opisuje nagłą dezorientację i problemy z pamięcią, co może wskazywać na udar, epizod demencji lub inne poważne stany. To sytuacja wymagająca natychmiastowej pomocy.",
+    "Final Output": "emergency"
+  },
+  {
+    "Input": "Znowu ta sąsiadka trzaska drzwiami cały dzień nie można odpocząć młodzi ludzie nie mają szacunku dla starszych",
+    "Reasoning": "Basia narzeka na hałaśliwą sąsiadkę. To zwykła rozmowa, nie ma tu elementów zdrowotnych ani sytuacji awaryjnych.",
+    "Final Output": "normal_talk"
+  },
+//  {
+//    "Input": "Strasznie mnie wzdęło po tym obiedzie u córki chyba ta kapusta mi zaszkodziła mam takie gazy że aż boli",
+//    "Reasoning": "Basia opisuje dolegliwości trawienne po posiłku. To typowy problem zdrowotny, ale nie stan nagły.",
+//    "Final Output": "health"
+//  },
+  {
+    "Input": "Szukam mojego kota nie widziałam go od wczoraj zazwyczaj wraca na noc martwię się że coś mu się stało",
+    "Reasoning": "Basia prowadzi zwykłą rozmowę o swoim zaginionym kocie. Nie ma tu elementów zdrowotnych ani sytuacji awaryjnych dotyczących samej osoby.",
+    "Final Output": "normal_talk"
+  },
+//  {
+//    "Input": "Dzisiaj mam dobry dzień kolana mniej bolą chyba ta pogoda mi służy jak jest ciepło to od razu lepiej się czuję stara kość ciepło lubi",
+//    "Reasoning": "Basia mówi o poprawie swojego stanu zdrowia. Choć wspomina o swoich dolegliwościach, to w pozytywnym kontekście.",
+//    "Final Output": "health"
+//  },
+//  {
+//    "Input": "czekam na wyniki badań jestem taka zdenerwowana doktor mówił że może być cukrzyca mam nadzieję że to nic poważnego",
+//    "Reasoning": "Basia mówi o oczekiwaniu na wyniki badań i możliwej diagnozie. To sprawa zdrowotna, ale nie stan nagły.",
+//    "Final Output": "health"
+//  },
+  {
+    "Input": "krew leci mi z nosa bardzo mocno nie mogę jej zatamować już 20 minut trwa pomóż mi",
+    "Reasoning": "Basia opisuje długotrwałe, niekontrolowane krwawienie z nosa. U osób starszych, szczególnie przyjmujących leki przeciwkrzepliwe, może to być stan wymagający pilnej pomocy medycznej.",
+    "Final Output": "emergency"
+  },
+  {
+    "Input": "moja córka kończy w tym roku 50 lat wyobrażasz sobie jak ten czas leci zorganizowaliśmy jej niespodziankę takie przyjęcie będzie",
+    "Reasoning": "Basia prowadzi zwykłą rozmowę o urodzinach córki. Nie ma tu elementów zdrowotnych ani sytuacji awaryjnych.",
+    "Final Output": "normal_talk"
+  },
+  {
+    "Input": "nie mogę sobie poradzić z tym telefonem ciągle wyskakują jakieś reklamy wnuk mi to ustawił ale teraz nie działa",
+    "Reasoning": "Basia prowadzi zwykłą rozmowę o problemach z telefonem. Nie ma tu elementów zdrowotnych ani sytuacji awaryjnych.",
+    "Final Output": "normal_talk"
+  },
+//  {
+//    "Input": "coś mnie ukąsiło w ogrodzie i teraz mam taką czerwoną plamę na ręce swędzi i puchnie coraz bardziej",
+//    "Reasoning": "Basia opisuje reakcję po ukąszeniu, która może być reakcją alergiczną. Jednak nie opisuje objawów ogólnoustrojowych zagrażających życiu, jak trudności w oddychaniu.",
+//    "Final Output": "health"
+//  },
+  {
+    "Input": "słyszę jakieś szepty w mieszkaniu ale nikogo tu nie ma boję się że ktoś się włamał",
+    "Reasoning": "Basia opisuje możliwą sytuację zagrożenia bezpieczeństwa - potencjalne włamanie. To sytuacja awaryjna wymagająca interwencji.",
+    "Final Output": "emergency"
+  },
+  {
+    "Input": "komputer mi się zepsuł nie włącza się a miałam tam wszystkie zdjęcia wnuków",
+    "Reasoning": "Basia prowadzi zwykłą rozmowę o problemie technicznym. Nie ma tu elementów zdrowotnych ani sytuacji awaryjnych.",
+    "Final Output": "normal_talk"
+  },
+//  {
+//    "Input": "mam cały czas biegunkę od trzech dni prawie nic nie jem bo zaraz lecę do łazienki",
+//    "Reasoning": "Basia opisuje przedłużającą się biegunkę, która może prowadzić do odwodnienia. U osób starszych to potencjalnie poważny problem zdrowotny, ale nie bezpośrednie zagrożenie życia, chyba że występują dodatkowe objawy.",
+//    "Final Output": "health"
+//  },
+  {
+    "Input": "chłopiec z sąsiedztwa pomógł mi dzisiaj z zakupami taki miły młody człowiek dałam mu ciastko na pocieszenie bo mówił że oblał egzamin",
+    "Reasoning": "Basia prowadzi zwykłą rozmowę o pomocy sąsiada. Nie ma tu elementów zdrowotnych ani sytuacji awaryjnych.",
+    "Final Output": "normal_talk"
+  },
+//  {
+//    "Input": "chyba złamałam rękę upadłam na schodach strasznie boli jak ruszam nie mogę nawet palcami poruszać",
+//    "Reasoning": "Basia opisuje prawdopodobne złamanie ręki po upadku. Choć bolesne i wymagające pomocy medycznej, zazwyczaj nie jest to stan bezpośrednio zagrażający życiu.",
+//    "Final Output": "health"
+//  },
+//  {
+//    "Input": "wiesz co miałam wczoraj to badanie kolonoskopię nie było tak strasznie jak myślałam doktor powiedział że wszystko w porządku",
+//    "Reasoning": "Basia prowadzi rozmowę o przebytym badaniu medycznym z dobrym wynikiem. To rozmowa o zdrowiu, ale nie o aktualnym problemie.",
+//    "Final Output": "health"
+//  },
+//  {
+//    "Input": "och mam takie zawroty głowy że nie mogę wstać z łóżka pokój wiruje jak spróbuję usiąść",
+//    "Reasoning": "Basia opisuje silne zawroty głowy uniemożliwiające wstanie. U osób starszych może to wskazywać na poważne problemy neurologiczne lub kardiologiczne wymagające oceny.",
+//    "Final Output": "health"
+//  },
+  {
+    "Input": "pomocy upadłam w łazience nie mogę wstać leżę tu od godziny nikt nie przychodzi",
+    "Reasoning": "Basia opisuje upadek w łazience i niemożność wstania przez dłuższy czas. To sytuacja awaryjna wymagająca natychmiastowej pomocy.",
+    "Final Output": "emergency"
+  },
+  {
+    "Input": "dziś jest rocznica ślubu z moim mężem 60 lat minęło szkoda że już go nie ma ze mną zawsze przynosił mi róże na rocznicę",
+    "Reasoning": "Basia wspomina zmarłego męża i rocznicę ślubu. To rozmowa o wspomnieniach i emocjach, nie ma tu elementów zdrowotnych ani sytuacji awaryjnych.",
+    "Final Output": "normal_talk"
+  },
+  {
+    "Input": "a ten nowy serial w telewizji oglądam codziennie taki ciekawy o lekarzach lubię go bo przypomina mi jak pracowałam jako pielęgniarka",
+    "Reasoning": "Basia prowadzi zwykłą rozmowę o serialu telewizyjnym. Nie ma tu elementów zdrowotnych ani sytuacji awaryjnych.",
+    "Final Output": "normal_talk"
+  },
+//  {
+//    "Input": "ten ból zęba mnie wykańcza już drugą noc nie śpię próbowałam tych tabletek co zawsze ale nie pomagają",
+//    "Reasoning": "Basia opisuje silny ból zęba, który uniemożliwia sen. To problem zdrowotny, ale zazwyczaj nie stan bezpośrednio zagrażający życiu.",
+//    "Final Output": "health"
+//  },
+  {
+    "Input": "ogień w sąsiednim mieszkaniu widzę dym pod drzwiami boję się wyjść",
+    "Reasoning": "Basia opisuje pożar w sąsiednim mieszkaniu, który stanowi bezpośrednie zagrożenie. To sytuacja awaryjna wymagająca natychmiastowej interwencji.",
+    "Final Output": "emergency"
+  },
+  {
+    "Input": "byłam dzisiaj na spacerze w parku kwitną już pierwsze kwiaty wiosenne takie piękne żółte pierwiosnki bardzo lubię tę porę roku",
+    "Reasoning": "Basia prowadzi zwykłą rozmowę o spacerze w parku i wiośnie. Nie ma tu elementów zdrowotnych ani sytuacji awaryjnych.",
+    "Final Output": "normal_talk"
+  },
+//  {
+//    "Input": "mam takie dziwne mroczki przed oczami już od wczoraj jak czytam to litery mi znikają może to zmęczenie",
+//    "Reasoning": "Basia opisuje zaburzenia widzenia, które mogą wskazywać na problemy oczne lub neurologiczne. U osób starszych warto to zweryfikować, ale nie opisuje objawów wskazujących na stan nagły.",
+//    "Final Output": "health"
+//  },
+  {
+    "Input": "sąsiadka z dołu umarła wczoraj taka młoda była miała tylko 75 lat serce jej stanęło podobno w sklepie",
+    "Reasoning": "Basia prowadzi rozmowę o śmierci sąsiadki. Nie ma tu elementów dotyczących własnego zdrowia ani sytuacji awaryjnej.",
+    "Final Output": "normal_talk"
+  },
+//  {
+//    "Input": "strasznie mi zimno jest nie mogę się ogrzać trzęsę się cała chociaż kaloryfer gorący i trzy koce mam",
+//    "Reasoning": "Basia opisuje uczucie zimna mimo odpowiedniego ogrzewania, co może wskazywać na gorączkę, infekcję lub inne problemy zdrowotne.",
+//    "Final Output": "health"
+//  },
+  {
+    "Input": "ktoś dobija się do drzwi krzyczy że jest policja ale nie znam tego głosu boję się otworzyć",
+    "Reasoning": "Basia opisuje potencjalnie niebezpieczną sytuację - możliwe oszustwo lub włamanie podszywające się pod policję. To sytuacja awaryjna.",
+    "Final Output": "emergency"
+  },
+  {
+    "Input": "córka dzwoniła wczoraj że przyjedzie na weekend z wnukami muszę upiec to ciasto co zawsze im robię z jabłkami i cynamonem",
+    "Reasoning": "Basia prowadzi zwykłą rozmowę o planowanej wizycie rodziny. Nie ma tu elementów zdrowotnych ani sytuacji awaryjnych.",
+    "Final Output": "normal_talk"
+  },
+//  {
+//    "Input": "od tygodnia mam te bóle brzucha nie wiem czy to od jedzenia czy może coś poważniejszego lekarz kazał mi robić badania",
+//    "Reasoning": "Basia opisuje utrzymujące się bóle brzucha, które są już pod opieką lekarza. To problem zdrowotny, ale nie stan nagły.",
+//    "Final Output": "health"
+//  },
+  {
+    "Input": "strasznie kaszlę i pluje krwią to chyba nie jest zwykłe przeziębienie boję się",
+    "Reasoning": "Basia opisuje kaszel z krwiopluciem, co może wskazywać na poważne schorzenia płuc, infekcję lub nowotwór. To objaw wymagający pilnej oceny medycznej.",
+    "Final Output": "emergency"
+  },
+  {
+    "Input": "widziałaś te ceny w sklepie wszystko drożeje jak tak dalej pójdzie to emerytura nie wystarczy nawet na chleb i mleko",
+    "Reasoning": "Basia prowadzi zwykłą rozmowę o cenach i problemach finansowych. Nie ma tu elementów zdrowotnych ani sytuacji awaryjnych.",
+    "Final Output": "normal_talk"
+  },
+//    {
+//    "Input": "dzisiaj rano jak wstałam to noga mnie tak rozbolała że ledwo do kuchni doszłam chyba ta pogoda tak działa na moje stawy",
+//    "Reasoning": "Basia opisuje ból stawów związany prawdopodobnie ze zmianą pogody. To typowy problem zdrowotny, ale nie stan nagły.",
+//    "Final Output": "health"
+//  },
+  {
+    "Input": "ratunku złodziej w mieszkaniu słyszę jak chodzi po pokoju schowałam się w łazience i zamknęłam drzwi",
+    "Reasoning": "Basia opisuje bezpośrednie zagrożenie - włamanie do mieszkania i obecność intruza. To nagła sytuacja awaryjna wymagająca natychmiastowej pomocy.",
+    "Final Output": "emergency"
+  },
+  {
+    "Input": "czy widziałaś moje okulary nie mogę znaleźć chyba zostawiłam je w kuchni jak robiłam herbatę",
+    "Reasoning": "Basia prowadzi zwykłą rozmowę o zgubionych okularach. Nie ma tu elementów zdrowotnych ani sytuacji awaryjnych.",
+    "Final Output": "normal_talk"
+  },
+//  {
+//    "Input": "tabletki na nadciśnienie mi się skończyły muszę jutro iść do przychodni ale ten ból w kolanie strasznie mi dokucza ciężko będzie dojść",
+//    "Reasoning": "Basia opisuje problem z lekami na nadciśnienie i bólem kolana. To kwestie zdrowotne, ale nie stany nagłe.",
+//    "Final Output": "health"
+//  },
+  {
+    "Input": "chyba gaz ulatnia się w kuchni czuję taki dziwny zapach i kręci mi się w głowie",
+    "Reasoning": "Basia opisuje potencjalny wyciek gazu, co stanowi bezpośrednie zagrożenie (ryzyko zatrucia lub wybuchu). To sytuacja awaryjna.",
+    "Final Output": "emergency"
+  },
+  {
+    "Input": "wczoraj byłam u fryzjera zrobiłam sobie nową fryzurę cała odmłodniałam nie sądzisz sama nie mogę się poznać w lustrze",
+    "Reasoning": "Basia prowadzi zwykłą rozmowę o wizycie u fryzjera. Nie ma tu elementów zdrowotnych ani sytuacji awaryjnych.",
+    "Final Output": "normal_talk"
+  },
+//  {
+//    "Input": "ta wysypka na plecach swędzi mnie tak okropnie próbowałam tej maści co zawsze ale nie pomaga nie mogę spać przez to swędzenie",
+//    "Reasoning": "Basia opisuje uporczywą wysypkę skórną. To problem zdrowotny, ale nie stan nagły.",
+//    "Final Output": "health"
+//  },
+  {
+    "Input": "krew leci mi z rany bardzo mocno upadłam i uderzyłam w szklany stół ręcznik już cały przesiąknięty",
+    "Reasoning": "Basia opisuje silne krwawienie z rany, którego nie może zatamować. To stan potencjalnie zagrażający życiu, szczególnie u osób starszych.",
+    "Final Output": "emergency"
+  },
+  {
+    "Input": "wiesz co kochana kupiłam wczoraj na targu takie piękne pomidory będę robić sos na obiad jak dawniej robiłam dla męża on tak lubił moje sosy",
+    "Reasoning": "Basia prowadzi zwykłą rozmowę o zakupach i gotowaniu. Nie ma tu elementów zdrowotnych ani sytuacji awaryjnych.",
+    "Final Output": "normal_talk"
+  },
+//  {
+//    "Input": "mam takie problemy z pamięcią ostatnio wstaję rano i nie wiem jaki jest dzień zaczynam się bać że to ta choroba alzheimera",
+//    "Reasoning": "Basia opisuje problemy z pamięcią i obawę o rozwój demencji. To problem zdrowotny, ale nie stan nagły.",
+//    "Final Output": "health"
+//  },
+  {
+    "Input": "utknęłam w windzie nikt nie odpowiada jak naciskam przycisk alarmu boję się że tu zostanę mam cukrzycę a nie wzięłam leków",
+    "Reasoning": "Basia opisuje uwięzienie w windzie, co jest szczególnie niebezpieczne ze względu na jej cukrzycę i brak dostępu do leków. To sytuacja awaryjna.",
+    "Final Output": "emergency"
+  },
+  {
+    "Input": "byłam na pogrzebie koleżanki ze szkoły smutno mi że odchodzą wszyscy których znałam została nas już tylko garstka z klasy",
+    "Reasoning": "Basia prowadzi rozmowę o pogrzebie koleżanki i refleksjach o przemijaniu. Nie ma tu elementów dotyczących własnego zdrowia ani sytuacji awaryjnej.",
+    "Final Output": "normal_talk"
+  },
+//  {
+//    "Input": "mam takie dziwne uczucie drętwienia w lewej ręce i nodze od wczoraj jakby mi cierpły ciągle",
+//    "Reasoning": "Basia opisuje drętwienie kończyn po jednej stronie ciała, co może być objawem neurologicznym (np. TIA, udar). To może wymagać dalszej oceny, ale sama osoba nie opisuje tego jako stan alarmowy.",
+//    "Final Output": "health"
+//  },
+  {
+    "Input": "jezus maria pali się moja kuchenka zostawiłam ściereczkę za blisko ognia wszystko się pali nie mogę tego ugasić",
+    "Reasoning": "Basia opisuje aktywny pożar w kuchni, którego nie może ugasić. To bezpośrednie zagrożenie życia wymagające natychmiastowej reakcji.",
+    "Final Output": "emergency"
+  },
+  {
+    "Input": "dzwonił syn że przywiezie mi nowy telewizor bo ten stary już ledwo działa cieszę się bo będę mogła oglądać moje seriale w lepszej jakości",
+    "Reasoning": "Basia prowadzi zwykłą rozmowę o nowym telewizorze. Nie ma tu elementów zdrowotnych ani sytuacji awaryjnych.",
+    "Final Output": "normal_talk"
+  },
+//  {
+//    "Input": "stopy mnie palą i swędzą między palcami chyba mam tego grzybka pielęgniarka w przychodni mówiła że to częste u starszych osób",
+//    "Reasoning": "Basia opisuje objawy grzybicy stóp. To problem zdrowotny, ale nie stan nagły.",
+//    "Final Output": "health"
+//  },
+  {
+    "Input": "chyba zatruł się lekami wziął za dużo tych tabletek na sen leży i nie reaguje oddycha ale bardzo wolno",
+    "Reasoning": "Basia opisuje prawdopodobne przedawkowanie leków u kogoś, kto jest nieprzytomny, ale oddycha. To stan bezpośredniego zagrożenia życia.",
+    "Final Output": "emergency"
+  },
+  {
+    "Input": "mój wnuczek skończył studia z wyróżnieniem jestem z niego taka dumna zawsze był mądrym chłopcem",
+    "Reasoning": "Basia prowadzi zwykłą rozmowę o osiągnięciach wnuka. Nie ma tu elementów zdrowotnych ani sytuacji awaryjnych.",
+    "Final Output": "normal_talk"
+  },
+//  {
+//    "Input": "mam strasznie sucho w ustach ciągle muszę pić wodę i często chodzę do toalety lekarz mówił że to może być od cukru",
+//    "Reasoning": "Basia opisuje objawy mogące wskazywać na cukrzycę (wzmożone pragnienie, częste oddawanie moczu). To problem zdrowotny, który wymaga kontroli, ale nie jest opisywany jako stan nagły.",
+//    "Final Output": "health"
+//  },
+  {
+    "Input": "ktoś wyłamuje drzwi do mojego mieszkania słyszę jak próbuje wejść błagam pomóżcie",
+    "Reasoning": "Basia opisuje prawdopodobne włamanie do mieszkania. To bezpośrednie zagrożenie bezpieczeństwa wymagające natychmiastowej pomocy.",
+    "Final Output": "emergency"
+  },
+  {
+    "Input": "zrobiłam wczoraj sernik według przepisu mojej mamy zawsze mi wychodzi rozpływa się w ustach wnuki zawsze proszą o dokładkę",
+    "Reasoning": "Basia prowadzi zwykłą rozmowę o pieczeniu ciasta. Nie ma tu elementów zdrowotnych ani sytuacji awaryjnych.",
+    "Final Output": "normal_talk"
+  },
+//  {
+//    "Input": "od tygodnia mam zatwardzenie nic nie pomaga ani te tabletki ani suszone śliwki martwię się bo brzuch mnie boli",
+//    "Reasoning": "Basia opisuje problem z zatwardzeniem trwający od tygodnia. To problem zdrowotny, ale nie stan nagły, chyba że pojawiają się dodatkowe niepokojące objawy.",
+//    "Final Output": "health"
+//  },
+  {
+    "Input": "pomocy złamałam nogę upadłam na schodach strasznie boli nie mogę się ruszyć a mieszkam sama",
+    "Reasoning": "Basia opisuje złamanie nogi w wyniku upadku, nie może się poruszać i jest sama. To sytuacja wymagająca natychmiastowej pomocy.",
+    "Final Output": "emergency"
+  },
+  {
+    "Input": "oglądałam wczoraj program o dzikich zwierzętach w Afryce te lwy są takie majestatyczne zawsze chciałam pojechać na safari",
+    "Reasoning": "Basia prowadzi zwykłą rozmowę o programie telewizyjnym i marzeniach o podróżach. Nie ma tu elementów zdrowotnych ani sytuacji awaryjnych.",
+    "Final Output": "normal_talk"
+  },
+//  {
+//    "Input": "dentysta mówi że potrzebuję nowej protezy ta stara już się nie nadaje ale to takie drogie na moją emeryturę",
+//    "Reasoning": "Basia opisuje problem z protezą zębową i obawami finansowymi. To kwestia zdrowotna, ale nie stan nagły.",
+//    "Final Output": "health"
+//  },
+  {
+    "Input": "woda zalewa mi mieszkanie pękła rura w łazience wszędzie woda nie mogę zakręcić zaworu",
+    "Reasoning": "Basia opisuje zalanie mieszkania w wyniku pęknięcia rury. To sytuacja awaryjna wymagająca szybkiej interwencji, szczególnie dla osoby starszej, która może nie być w stanie samodzielnie poradzić sobie z problemem.",
+    "Final Output": "emergency"
+  },
+  {
+    "Input": "kupiłam nowy sweter na jesień taki śliczny niebieski w sklepie na rynku był w promocji bardzo dobra cena",
+    "Reasoning": "Basia prowadzi zwykłą rozmowę o zakupie ubrania. Nie ma tu elementów zdrowotnych ani sytuacji awaryjnych.",
+    "Final Output": "normal_talk"
+  },
+//  {
+//    "Input": "mój aparat słuchowy chyba się zepsuł nic nie słyszę muszę iść do tego specjalisty ale to dopiero za tydzień wizyta",
+//    "Reasoning": "Basia opisuje problem z aparatem słuchowym. To problem zdrowotny wpływający na jakość życia, ale nie stan nagły.",
+//    "Final Output": "health"
+//  },
+  {
+    "Input": "czuję swąd spalenizny i widzę dym z piwnicy chyba się pali w kotłowni a mieszkam na parterze",
+    "Reasoning": "Basia opisuje oznaki pożaru w budynku. To sytuacja bezpośrednio zagrażająca życiu i wymagająca natychmiastowej ewakuacji i pomocy.",
+    "Final Output": "emergency"
+  },
+  {
+    "Input": "rozmawiałam z sąsiadką wczoraj powiedziała że jej syn dostał pracę w urzędzie miasta to dobra posada teraz będzie mógł się ożenić",
+    "Reasoning": "Basia prowadzi zwykłą rozmowę o synu sąsiadki. Nie ma tu elementów zdrowotnych ani sytuacji awaryjnych.",
+    "Final Output": "normal_talk"
+  },
+//  {
+//    "Input": "ta alergia mnie wykańcza oczy łzawią nos cieknie nie mogę nawet wyjść na spacer gdy kwitną te drzewa",
+//    "Reasoning": "Basia opisuje objawy alergii sezonowej. To problem zdrowotny, ale nie stan nagły.",
+//    "Final Output": "health"
+//  },
+  {
+    "Input": "dziecko sąsiadów wpadło do mojego ogródka i nie może wyjść płacze a nikogo nie ma w domu obok boję się że sobie coś zrobi",
+    "Reasoning": "Basia opisuje sytuację z uwięzionym dzieckiem, które potrzebuje pomocy. Choć nie jest to bezpośrednie zagrożenie życia osoby starszej, to sytuacja wymagająca interwencji.",
+    "Final Output": "emergency"
+  },
+  {
+    "Input": "zrobiłam porządki w szafie tyle starych ubrań znalazłam oddam je na zbiórkę dla biednych zawsze to komuś się przyda",
+    "Reasoning": "Basia prowadzi zwykłą rozmowę o porządkach i planach oddania ubrań. Nie ma tu elementów zdrowotnych ani sytuacji awaryjnych.",
+    "Final Output": "normal_talk"
+  },
+//  {
+//    "Input": "strasznie mnie swędzi głowa mam chyba te pasożyty wszy czy coś takiego wnuki przyniosły ze szkoły",
+//    "Reasoning": "Basia opisuje prawdopodobną wszawicę. To problem zdrowotny wymagający leczenia, ale nie stan nagły.",
+//    "Final Output": "health"
+//  },
+  {
+    "Input": "nie czuję nóg w ogóle nagle przestały mnie słuchać siedzę na krześle i nie mogę wstać to chyba udar pomocy",
+    "Reasoning": "Basia opisuje nagłą utratę czucia i funkcji w nogach, co może wskazywać na udar, ucisk rdzenia kręgowego lub inne poważne schorzenie neurologiczne. To stan wymagający natychmiastowej pomocy medycznej.",
+    "Final Output": "emergency"
+  },
+  {
+    "Input": "widziałam w telewizji program o gotowaniu robili takie ciekawe danie z bakłażana może spróbuję zrobić nigdy wcześniej nie używałam bakłażana",
+    "Reasoning": "Basia prowadzi zwykłą rozmowę o programie kulinarnym i planach gotowania. Nie ma tu elementów zdrowotnych ani sytuacji awaryjnych.",
+    "Final Output": "normal_talk"
+  },
+//  {
+//    "Input": "boli mnie ząb już trzeci dzień próbowałam tych kropli z apteki ale ból nie ustępuje chyba będę musiała iść do dentysty",
+//    "Reasoning": "Basia opisuje ból zęba utrzymujący się kilka dni. To problem zdrowotny, ale nie stan nagły.",
+//    "Final Output": "health"
+//  },
+  {
+    "Input": "pomocy nie mogę oddychać coś mi stanęło w gardle duszę się",
+    "Reasoning": "Basia opisuje duszenie się z powodu ciała obcego w drogach oddechowych. To bezpośrednie zagrożenie życia wymagające natychmiastowej pomocy.",
+    "Final Output": "emergency"
+  },
+  {
+    "Input": "robię na drutach sweter dla prawnuka będzie miał roczek w przyszłym miesiącu chcę zdążyć na jego urodziny",
+    "Reasoning": "Basia prowadzi zwykłą rozmowę o hobby (robienie na drutach) i prezencie dla prawnuka. Nie ma tu elementów zdrowotnych ani sytuacji awaryjnych.",
+    "Final Output": "normal_talk"
+  },
+//  {
+//    "Input": "moje ciśnienie ostatnio jest wysokie ta nowa tabletka chyba nie działa tak jak powinna",
+//    "Reasoning": "Basia opisuje problem z wysokim ciśnieniem tętniczym i brakiem skuteczności leku. To problem zdrowotny, ale nie opisuje go jako stan nagły.",
+//    "Final Output": "health"
+//  },
+  {
+    "Input": "zaczynam mieć trudności z oddychaniem i ból w klatce piersiowej nie mogę złapać tchu pomocy",
+    "Reasoning": "Basia opisuje duszność i ból w klatce piersiowej - objawy mogące wskazywać na zawał serca, zator płucny lub inne poważne stany. To sytuacja bezpośrednio zagrażająca życiu.",
+    "Final Output": "emergency"
+  },
+  {
+    "Input": "wczoraj dostałam list od koleżanki z Ameryki nie pisała od lat myślałam że już nie żyje a tu taka niespodzianka",
+    "Reasoning": "Basia prowadzi zwykłą rozmowę o liście od dawno niesłyszanej koleżanki. Nie ma tu elementów zdrowotnych ani sytuacji awaryjnych.",
+    "Final Output": "normal_talk"
+  },
+//  {
+//    "Input": "ten szum w uszach mnie doprowadza do szału trwa już miesiąc lekarz mówi że to może być od stresu albo ciśnienia",
+//    "Reasoning": "Basia opisuje utrzymujący się szum w uszach, który jest już pod opieką lekarza. To problem zdrowotny, ale nie stan nagły.",
+//    "Final Output": "health"
+//  },
+  {
+    "Input": "pies sąsiada mnie ugryzł w rękę krwawi strasznie a ja biorę te leki rozrzedzające krew",
+    "Reasoning": "Basia opisuje ugryzienie przez psa z silnym krwawieniem, które jest szczególnie niebezpieczne ze względu na przyjmowane leki przeciwkrzepliwe. To sytuacja wymagająca szybkiej pomocy medycznej.",
+    "Final Output": "emergency"
+  },
+  {
+    "Input": "podobno mają budować nowy sklep na naszym osiedlu to dobrze bo do tego dużego supermarketu daleko mi chodzić",
+    "Reasoning": "Basia prowadzi zwykłą rozmowę o planowanej budowie sklepu. Nie ma tu elementów zdrowotnych ani sytuacji awaryjnych.",
+    "Final Output": "normal_talk"
+  },
+//  {
+//    "Input": "mam problemy z trawieniem ostatnio wszystko mnie wzdyma i mam zgagę po każdym posiłku",
+//    "Reasoning": "Basia opisuje problemy trawienne (wzdęcia, zgaga). To problem zdrowotny, ale nie stan nagły.",
+//    "Final Output": "health"
+//  },
+  {
+    "Input": "czuję że zaraz zemdleję kręci mi się w głowie i robi mi się ciemno przed oczami",
+    "Reasoning": "Basia opisuje stan przedomdleniowy, który może wskazywać na różne poważne problemy zdrowotne (zaburzenia rytmu serca, spadek ciśnienia, hipoglikemia). To sytuacja wymagająca szybkiej oceny.",
+    "Final Output": "emergency"
+  },
+  {
+    "Input": "telewizor przestał działać wczoraj wieczorem szkoda bo miał być ten serial co zawsze oglądam we wtorki będę musiała wezwać fachowca",
+    "Reasoning": "Basia prowadzi zwykłą rozmowę o zepsutym telewizorze. Nie ma tu elementów zdrowotnych ani sytuacji awaryjnych.",
+    "Final Output": "normal_talk"
+  },
+//  {
+//    "Input": "mam wysypkę na całym ciele po tych nowych tabletkach chyba uczulenie lekarz mówił że może tak być na początku",
+//    "Reasoning": "Basia opisuje wysypkę jako reakcję na nowe leki, o czym był informowany przez lekarza. To kwestia zdrowotna, ale nie opisuje jej jako stan alarmowy.",
+//    "Final Output": "health"
+//  },
+  {
+    "Input": "mój mąż upadł w łazience i nie reaguje leży na podłodze nieprzytomny pomocy",
+    "Reasoning": "Basia opisuje nieprzytomnego męża po upadku. To stan bezpośredniego zagrożenia życia wymagający natychmiastowej pomocy medycznej.",
+    "Final Output": "emergency"
+  },
+  {
+    "Input": "wczoraj była u mnie koleżanka z młodości przyniosła mi zdjęcia z dawnych lat taka byłam młoda i piękna nawet nie poznałam siebie",
+    "Reasoning": "Basia prowadzi zwykłą rozmowę o wizycie koleżanki i wspomnieniach. Nie ma tu elementów zdrowotnych ani sytuacji awaryjnych.",
+    "Final Output": "normal_talk"
+  },
+//  {
+//    "Input": "ostatnio tak szybko się męczę wchodzę po schodach i muszę odpocząć kiedyś wbiegałam bez problemu",
+//    "Reasoning": "Basia opisuje zwiększoną męczliwość przy wysiłku. To problem zdrowotny, który powinien być oceniony, ale nie stan nagły.",
+//    "Final Output": "health"
+//  },
+  {
+    "Input": "złodziej włamał się do mojego mieszkania chyba mnie nie widzi schowałam się w szafie w sypialni",
+    "Reasoning": "Basia opisuje włamanie do mieszkania i ukrywa się przed intruzem. To sytuacja bezpośredniego zagrożenia wymagająca natychmiastowej pomocy.",
+    "Final Output": "emergency"
+  },
+  {
+    "Input": "muszę wymienić żarówkę w lampie w kuchni ale nie mogę dosięgnąć poproszę sąsiada żeby mi pomógł on taki wysoki",
+    "Reasoning": "Basia prowadzi zwykłą rozmowę o potrzebie wymiany żarówki. Nie ma tu elementów zdrowotnych ani sytuacji awaryjnych.",
+    "Final Output": "normal_talk"
+  },
+//  {
+//    "Input": "przybrakło mi tchu jak szłam do sklepu musiałam usiąść na ławce może za szybko szłam",
+//    "Reasoning": "Basia opisuje duszność wysiłkową, która ustąpiła po odpoczynku. To kwestia zdrowotna, ale nie stan nagły.",
+//    "Final Output": "health"
+//  },
+  {
+    "Input": "straciłam przytomność w łazience ocknęłam się na podłodze nie wiem jak długo tu leżę",
+    "Reasoning": "Basia opisuje omdlenie z utratą przytomności na nieokreślony czas. U osób starszych takie sytuacje wymagają pilnej oceny medycznej.",
+    "Final Output": "emergency"
+  },
+  {
+    "Input": "posadziłam nowe kwiatki na balkonie takie czerwone pelargonie będą ładnie wyglądać całe lato",
+    "Reasoning": "Basia prowadzi zwykłą rozmowę o kwiatach na balkonie. Nie ma tu elementów zdrowotnych ani sytuacji awaryjnych.",
+    "Final Output": "normal_talk"
+  },
+//  {
+//    "Input": "chyba mam ten zespół niespokojnych nóg nie mogę ich utrzymać w miejscu muszę ciągle poruszać",
+//    "Reasoning": "Basia opisuje objawy zespołu niespokojnych nóg. To problem zdrowotny wpływający na komfort życia, ale nie stan nagły.",
+//    "Final Output": "health"
+//  },
+  {
+    "Input": "mój licznik prądu iskrzy i dymi chyba jest zwarcie boję się że wybuchnie pożar",
+    "Reasoning": "Basia opisuje niebezpieczną sytuację - iskrzący i dymiący licznik prądu, co może prowadzić do pożaru. To sytuacja awaryjna wymagająca natychmiastowej interwencji.",
+    "Final Output": "emergency"
+  },
+  {
+    "Input": "znalazłam stare zdjęcie z wesela mojej córki już 30 lat minęło jak ten czas szybko leci",
+    "Reasoning": "Basia prowadzi zwykłą rozmowę o znalezionym zdjęciu i przemijaniu czasu. Nie ma tu elementów zdrowotnych ani sytuacji awaryjnych.",
+    "Final Output": "normal_talk"
+  },
+//  {
+//    "Input": "te nowe tabletki na cholesterol powodują u mnie bóle mięśni ciężko mi wstać z łóżka rano",
+//    "Reasoning": "Basia opisuje skutki uboczne leków na cholesterol (statyn) w postaci bólów mięśniowych. To problem zdrowotny, który powinien być skonsultowany, ale nie stan nagły.",
+//    "Final Output": "health"
+//  },
+  {
+    "Input": "w moim bloku wybuchł pożar na pierwszym piętrze a ja mieszkam na trzecim i nie mogę zejść po schodach bo są zadymione",
+    "Reasoning": "Basia opisuje pożar w budynku i brak możliwości ewakuacji z powodu zadymionych schodów. To bezpośrednie zagrożenie życia wymagające natychmiastowej pomocy.",
+    "Final Output": "emergency"
+  },
+  {
+    "Input": "mój kot Mruczek strasznie przytył ostatnio chyba za dużo mu daję jeść muszę ograniczyć te przysmaki",
+    "Reasoning": "Basia prowadzi zwykłą rozmowę o swoim kocie. Nie ma tu elementów zdrowotnych ani sytuacji awaryjnych dotyczących samej osoby.",
+    "Final Output": "normal_talk"
+  },
+//  {
+//    "Input": "mam problem z utrzymaniem moczu jak kaszlę albo kichnę od razu mi ucieka to takie krępujące",
+//    "Reasoning": "Basia opisuje problem z nietrzymaniem moczu. To typowy problem zdrowotny u osób starszych, ale nie stan nagły.",
+//    "Final Output": "health"
+//  },
+  {
+    "Input": "nie mogę wstać z podłogi upadłam i chyba złamałam biodro tak strasznie boli mieszkam sama nikt nie przyjdzie do jutra",
+    "Reasoning": "Basia opisuje upadek z prawdopodobnym złamaniem biodra, nie może się poruszać i jest sama bez perspektywy pomocy. To sytuacja wymagająca natychmiastowej interwencji.",
+    "Final Output": "emergency"
+  },
+  {
+    "Input": "zapisałam się na wycieczkę do Krakowa z klubem seniora jedziemy za dwa tygodnie nie mogę się doczekać",
+    "Reasoning": "Basia prowadzi zwykłą rozmowę o planowanej wycieczce. Nie ma tu elementów zdrowotnych ani sytuacji awaryjnych.",
+    "Final Output": "normal_talk"
+  },
+//  {
+//    "Input": "straciłam kilka kilogramów ostatnio chociaż wcale nie stosuję diety może to przez te leki nowe",
+//    "Reasoning": "Basia opisuje niezamierzoną utratę wagi, która może być związana z lekami. To objaw zdrowotny, który powinien być oceniony, ale nie stan nagły.",
+//    "Final Output": "health"
+//  },
+  {
+    "Input": "coś mnie ukąsiło w parku i teraz cała ręka spuchnięta i czerwona nie mogę nią ruszyć strasznie boli",
+    "Reasoning": "Basia opisuje silną reakcję alergiczną po ukąszeniu z obrzękiem i ograniczeniem ruchomości. U osób starszych może to wymagać pilnej interwencji medycznej.",
+    "Final Output": "emergency"
+  }
+]
