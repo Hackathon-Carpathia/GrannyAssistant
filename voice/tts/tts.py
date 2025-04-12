@@ -1,6 +1,7 @@
 import subprocess
 import asyncio
 import websockets
+import sys
 
 # Input text
 text = "Oczywiście, chętnie Ci pomogę, Basiu! Napisz tylko, z czym dokładnie masz problem. Chodzi o coś technicznego, zdrowotnego, dokumenty, komputer, telefon, czy może coś zupełnie innego? Postaram się wszystko wytłumaczyć spokojnie i krok po kroku."
@@ -10,7 +11,7 @@ model_path = "pl_PL-darkman-medium.onnx"
 
 # Run the pipeline: echo -> piper -> aplay
 
-URI = "wss://halina.wmlynik.ovh/ws"
+URI = f"wss://halina.wmlynik.ovh/ws/{sys.argv[1]}"
 
 async def listen():
     async with websockets.connect(URI) as websocket:
