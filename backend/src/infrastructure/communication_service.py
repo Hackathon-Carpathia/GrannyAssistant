@@ -23,16 +23,18 @@ class CommunicationService:
             url=self.config.llm_agent_url,
             data=query.to_dict()
         )
-        llm_response = LLMResponse.from_dict(response)
-        await self.broadcast_messages(llm_response)
+        response = response.json()
+        message = response.get('message')
+        await self.broadcast_messages(message, query.user_id)
 
     async def execute_event(self, event: Event):
         response = await self._post(
             url=self.config.llm_url,
             data=event.to_dict()
         )
-        llm_response = LLMResponse.from_dict(response)
-        await self.broadcast_messages(llm_response)
+        response = response.json()
+        message = response.get('message')
+        await self.broadcast_messages(message, event.user_id)
 
     async def register_event(self, event: RegisterEvent):
         await self._post(
@@ -57,10 +59,10 @@ class CommunicationService:
     async def add_websocket(self, websocket, id_: int):
         self.connected_clients[id_] = websocket
 
-    async def broadcast_messages(self, llm_response: LLMResponse):
-        ws = self.connected_clients[llm_response.user_id]
+    async def broadcast_messages(self, message: str, id_: int):
+        ws = self.connected_clients[id_]
 
         try:
-            await ws.send(llm_response.message)
+            await ws.send(message)
         except:
-            self.connected_clients.pop(llm_response.user_id, None)
+            self.connected_clients.pop(id_, None)
