@@ -23,9 +23,9 @@ class CommunicationService:
             url=self.config.llm_agent_url,
             data=query.to_dict()
         )
-        response = response.json()
-        message = response.get('message')
-        await self.broadcast_messages(message, query.user_id)
+        print(response)
+        # message = response.get('message')
+        await self.broadcast_messages(response, query.user_id)
 
     async def execute_event(self, event: Event):
         response = await self._post(
