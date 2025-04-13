@@ -1,18 +1,22 @@
 import os
+from fastapi import APIRouter, Depends
+from src.twilio_config import get_twilio_client
+from src.SMSMetadata import SMSMetadata
+from dotenv import load_dotenv
 
-from fastapi import Depends
-from twilio_config import get_twilio_client
-from SMSMetadata import SMSMetadata
-from fastapi import FastAPI
+router = APIRouter()
 
-app = FastAPI()
+load_dotenv(override=True)
 
-
-@app.post("/sendSMS/", tags=["SMS"])
+@router.post("/sendSMS/", tags=["SMS"])
 async def send_sms(sms_data: SMSMetadata, twilio=Depends(get_twilio_client)) -> str:
+    print(f"sms_data {sms_data.message}")
+    print(f"os + {os.getenv('FROM_NUMBER')}")
+    print(f"TO + {sms_data.to_number}")
     message = twilio.messages.create(
         body=sms_data.message,
         from_=os.getenv("FROM_NUMBER"),
         to=sms_data.to_number,
     )
+    print(f"SMS sent successfully - {message.sid}")
     return f"SMS sent successfully - {message.sid}"

@@ -3,7 +3,8 @@ from twilio.rest import Client
 
 from dotenv import load_dotenv
 
-load_dotenv()
+load_dotenv(override=True)
+
 
 
 def get_twilio_client():
