@@ -3,7 +3,6 @@ from src.api.dependencies import get_communication_service
 from src.infrastructure.communication_service import CommunicationService
 from pydantic import BaseModel
 from src.domain.event import UserQuery, RegisterEvent, Event
-# from src.infrastructure.event_handler import EventHandler
 
 router = APIRouter()
 

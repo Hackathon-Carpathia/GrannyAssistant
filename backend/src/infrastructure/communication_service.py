@@ -41,7 +41,6 @@ class CommunicationService:
         )
 
     async def _post(self, url: str, data: dict):
-        print('test')
         async with httpx.AsyncClient() as client:
             try:
                 response = await client.post(
@@ -58,11 +57,10 @@ class CommunicationService:
     async def add_websocket(self, websocket, id_: int):
         self.connected_clients[id_] = websocket
 
-    async def broadcast_messages(llm_response: LLMResponse):
-        while True:
-            ws = self.connected_clients[llm_response.user_id]
+    async def broadcast_messages(self, llm_response: LLMResponse):
+        ws = self.connected_clients[llm_response.user_id]
 
-            try:
-                await ws.send(llm_response.message)
-            except:
-                self.connected_clients.pop(llm_response.user_id, None)
+        try:
+            await ws.send(llm_response.message)
+        except:
+            self.connected_clients.pop(llm_response.user_id, None)

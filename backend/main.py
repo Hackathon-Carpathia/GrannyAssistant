@@ -6,6 +6,7 @@ from src.api.middleware import AuthMiddleware
 from dotenv import load_dotenv
 import asyncio
 import websockets
+from src.domain.event import LLMResponse
 
 load_dotenv(override=True)
 
@@ -17,13 +18,17 @@ async def create_app():
     return app
 
 
-async def websocket_handler(websocket, path):
-    if path[:4] != '/ws/':
+async def websocket_handler(websocket):
+    if websocket.request.path[:4] != '/ws/':
         await websocket.close()
         return
-    id_ = int(path[4:])
+    id_ = int(websocket.request.path[4:])
     communication_service = get_communication_service()
-    communication_service.add_websocket(websocket, id_)
+
+    try:
+        await websocket.wait_closed()
+    finally:
+        connected_clients.remove(websocket)
 
 
 async def start_websocket_server():
@@ -41,6 +46,7 @@ async def main():
         start_websocket_server(),
         start_fastapi_server()
     )
+
 
 
 if __name__ == "__main__":
