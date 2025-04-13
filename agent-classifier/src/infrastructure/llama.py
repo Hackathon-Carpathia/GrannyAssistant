@@ -13,7 +13,7 @@ def get_quantization_config():
 
 def load_model_and_tokenizer(model_name: str):
     quantization_config = get_quantization_config()
-    
+
     model = AutoModelForCausalLM.from_pretrained(
         model_name,
         quantization_config=quantization_config,
@@ -24,42 +24,21 @@ def load_model_and_tokenizer(model_name: str):
     tokenizer = AutoTokenizer.from_pretrained(model_name, add_prefix_space=True)
     tokenizer.pad_token_id = tokenizer.eos_token_id
     tokenizer.pad_token = tokenizer.eos_token
-    
+
     return model, tokenizer
 
 def prepare_prompt():
     return """
-    Zwracaj odpowiedzi wyłącznie w formacie JSON o maksymalnej dlugosci pola "POWÓD DECYZJI" równy 160 (2 zdania). Odpowiedź nie powinna zawierać żadnych dodatkowych komentarzy, tylko czysty JSON. 
-    1. Pierwszy klucz to "OCENA SYTUACJI".
-    2. Drugi klucz to "Powód decyzji".
-
-    Jeżeli "OCENA SYTUACJI" to "emergency", powód decyzji powinien zawierać argumentację w formie:
-    - "Opisuj sytuacje Basi w trzeciej osobie. Popros opiekuna z ktorym sie wlasnie kontaktujesz przez ta argumentacje, aby skontaktowal się z Basią jak najszybciej, aby uzyskać pomoc medyczną. Zachec odbiorce wiadomosci do wezwanie pomocy, jeśli sytuacja tego wymaga."
-
-    Jeżeli "OCENA SYTUACJI" to "normalna rozmowa", zwróć tylko `"OCENA SYTUACJI": "rozmowa"`, bez podawania powodu (pusty string).
-    Poniżej znajdują się zasady oraz przykłady, które powinny być przestrzegane
-    **Przykład**:
-    1. Wejście: "Basia: Upadłam i bardzo boli mnie noga. Pomocy"
-       - Odpowiedź niech bedzie w formacie json jak w ponizszym przykladzie. To bardzo wazne aby odpowiedz byla wlasnie w tym formacie:
-         ```
-         {
-           "OCENA SYTUACJI": "emergency",
-           "Powód decyzji": "Basia doznala wypadku i urazu nogi, co może wymagać pomocy. Skontaktuj się z nią jak najszybciej, aby uzyskać pomoc medyczną. Rozważ wezwanie pomocy, jeśli sytuacja tego wymaga."
-         }
-         ```
-
-    2. Wejście: "Basia: Właśnie oglądam film, świetnie się bawię!"
-       - Odpowiedź niech bedzie w formacie json jak w ponizszym przykladzie. To bardzo wazne aby odpowiedz byla wlasnie w tym formacie :
-         ```
-         {
-           "OCENA SYTUACJI": "rozmowa"
-           "Powód decyzji": ""
-         }
-         ```
-
-    **Pamiętaj**:
-    - W przypadku "emergency", zawsze podaj wyjaśnienie sytuacji i zagrożenia w sposób stonowany, ale jasno wskazujący na konieczność szybkiej reakcji. Dodatkowo, zawsze uwzględnij zalecenie o rozważeniu wezwania pomocy medycznej, jeśli sytuacja tego wymaga.
-    - Jeśli sytuacja nie jest nagła, nie podawaj żadnych szczegółów, tylko zwróć `"OCENA SYTUACJI": "rozmowa"`.
+    Odpowiadaj wyłącznie JSON. Jeśli sytuacja jest krytyczna ('emergency'),
+    podaj jedno zwięzłe zdanie opisujące zagrożenie Basi opisane prompcie wejściowym (w trzeciej osobie)
+    oraz zalecenie rozważenia pomocy medycznej jako 'Powód decyzji'. Jeśli sytuacja nie jest nagła ('rozmowa'),
+    zwróć 'OCENA SYTUACJI': 'rozmowa' oraz pustą 'Powód decyzji'. Przykład:
+    input: "Pomocy, spadłam ze schodów! Ból w nodze jest nie do wytrzymania!"
+    {
+        "OCENA SYTUACJI": "emergency",
+        "Powód decyzji": "Basia doznala wypadku i urazu nogi, co może wymagać pomocy. Skontaktuj się z nią!"
+    }
+    "Powód decyzji" musi być mniej niż 140 znaków!
     """
 
 def generate_response(user_input):
@@ -88,21 +67,18 @@ def generate_response(user_input):
 def parse_response(response_str: str):
     while True:
         try:
-        # Usuwanie tokenu <|eot_id|> z końca stringa
             print(response_str)
             response_str_cleaned = response_str.replace("<|eot_id|>", "").strip().strip("`")
             print(response_str_cleaned)
-            # Parsowanie JSON
             response_dict = json.loads(response_str_cleaned)
-            
-            # Wyciąganie "OCENA SYTUACJI" i "Powód decyzji"
+
             ocena_sytuacji = response_dict.get("OCENA SYTUACJI")
             powod_decyzji = response_dict.get("Powód decyzji")
-            # if len(powod_decyzji) > 160:
-            #     messages.append({"role": "system", "content": "Wygenerowana wiadomosc za dluga - spra"})
-            #     continue
+            if len(powod_decyzji) > 160:
+                messages.append({"role": "system", "content": "Wygenerowana wiadomosc za dluga - skróć ją"})
+                continue
             return ocena_sytuacji, powod_decyzji
-    
+
         except json.JSONDecodeError:
             messages.append({"role": "system", "content": """Nieprawidłowo wygenorowany JSON. Wygeneruj poprawny JSON. Przyklad          ```
          {
@@ -110,7 +86,7 @@ def parse_response(response_str: str):
            "Powód decyzji": ""
          }
          ```"""})
-            
+
             continue
 
 model_name = "meta-llama/Meta-Llama-3-8B-Instruct"
