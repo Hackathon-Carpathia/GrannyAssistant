@@ -10,16 +10,17 @@ router = APIRouter()
 
 @router.post("/user_request", status_code=200)
 async def get_answer_from_llm_agent(query: UserQuery, service: CommunicationService = Depends(get_communication_service)):
-    ans = service.get_answer_from_llm_agent(query)
+    ans = await service.get_answer_from_llm_agent(query)
     pass
 
 
 @router.post("/register_event", status_code=200)
-def register_event(event: RegisterEvent, service: CommunicationService = Depends(get_communication_service)):
-    service.register_event(event)
+async def register_event(event: RegisterEvent, service: CommunicationService = Depends(get_communication_service)):
+    print('register')
+    await service.register_event(event)
     pass
 
 @router.post("/call_event", status_code=200)
-def register_event(event: Event, service: CommunicationService = Depends(get_communication_service)):
-    service.execute_event(event)
+async def register_event(event: Event, service: CommunicationService = Depends(get_communication_service)):
+    await service.execute_event(event)
     pass

@@ -12,7 +12,6 @@ class EventService:
 
     async def register_event(self, event: RegisterEvent):
         await self.event_repository.create(event)
-        print(await self.event_repository.read_events_to_execute())
 
         
     async def execute_events(self, background_tasks: BackgroundTasks):

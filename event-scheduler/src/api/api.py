@@ -8,7 +8,6 @@ from src.infrastructure.event_service import EventService
 router = APIRouter()
 
 
-
 @router.post("/register_event", status_code=200)
 async def register_event(event: RegisterEvent, service: EventService = Depends(get_event_service)):
     await service.register_event(event)
