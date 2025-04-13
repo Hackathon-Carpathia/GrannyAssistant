@@ -11,7 +11,7 @@ model_path = "pl_PL-darkman-medium.onnx"
 
 # Run the pipeline: echo -> piper -> aplay
 
-URI = f"wss://halina.wmlynik.ovh/ws/{sys.argv[1]}"
+URI = f"ws://localhost:42779/ws/{sys.argv[1]}"
 
 async def listen():
     async with websockets.connect(URI) as websocket:
