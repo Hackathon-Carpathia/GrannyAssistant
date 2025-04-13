@@ -78,10 +78,7 @@ python-dotenv==1.1.0
 python-multipart==0.0.20
 pytz==2025.2
 PyYAML==6.0.2
-<<<<<<< HEAD
-=======
 regex==2024.11.6
->>>>>>> 010834a (Add req)
 requests==2.32.3
 rich==14.0.0
 rich-toolkit==0.14.1
