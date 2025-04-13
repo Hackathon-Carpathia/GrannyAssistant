@@ -24,7 +24,7 @@ async def websocket_handler(websocket):
         return
     id_ = int(websocket.request.path[4:])
     communication_service = get_communication_service()
-
+    await communication_service.add_websocket(websocket, id_)
     try:
         await websocket.wait_closed()
     finally:
