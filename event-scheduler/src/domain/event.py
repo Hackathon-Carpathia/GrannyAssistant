@@ -1,7 +1,6 @@
 from pydantic import BaseModel, Field
 from typing import List
 from datetime import date
-from dataclasses import dataclass
 
 
 class UserQuery(BaseModel):
@@ -41,12 +40,3 @@ class Event(BaseModel):
             "user_id": self.user_id,
             "prompt": self.prompt
         }
-
-@dataclass
-class LLMResponse():
-    user_id: int
-    message: str
-
-    @classmethod
-    def from_dict(cls, data: dict) -> 'LLMResponse':
-        return cls.model_validate(data)
